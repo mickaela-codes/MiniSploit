@@ -208,7 +208,7 @@ docker-compose down
 
 The following is a sample report generated after scanning the Jammy container:
 
-  <img width="945" height="660" alt="MiniSploitReportExample1" src="https://github.com/user-attachments/assets/29aec175-b5bf-4187-915f-b2210377730d" />
+![Screenshot](images/ReportOutput.png)
 
 ---
 
@@ -219,8 +219,7 @@ MiniSploit includes a small library of publicly available PoC exploits.
 - Intended for controlled, educational environments only
 - PoCs are sourced from publicly disclosed research and retain attribution to original authors
 
-  <img width="587" height="631" alt="Screenshot 2026-04-15 20364" src="https://github.com/user-attachments/assets/6e58ac75-92bf-4604-abe8-0d7d3b1f00b6" />
-
+![Screenshot](images/VulnOutput.png)
 ---
 
 ## 🧩 Known Limitations
