@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  focal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UBUNTU_IMAGE: ubuntu:20.04
+        SUDO_DEB_URL: http://archive.ubuntu.com/ubuntu/pool/main/s/sudo/sudo_1.8.31-1ubuntu1.5_amd64.deb
+    image: minisploit:focal
+    container_name: focal
+    volumes:
+      - ../client:/client
+    ports:
+      - "2323:23"
+    tty: true
+    stdin_open: true
+    networks:
+      minisploit_net:
+        ipv4_address: 172.18.0.10
+
+  jammy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UBUNTU_IMAGE: ubuntu:22.04
+        SUDO_DEB_URL: http://archive.ubuntu.com/ubuntu/pool/main/s/sudo/sudo_1.9.9-1ubuntu2_amd64.deb
+    image: minisploit:jammy
+    container_name: jammy
+    volumes:
+      - ../client:/client
+    ports:
+      - "2324:23"
+    tty: true
+    stdin_open: true
+    networks:
+      minisploit_net:
+        ipv4_address: 172.18.0.11
+
+  noble:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UBUNTU_IMAGE: ubuntu:noble-20251001
+        SUDO_DEB_URL: https://archive.ubuntu.com/ubuntu/pool/main/s/sudo/sudo_1.9.15p5-3ubuntu5_amd64.deb
+    image: minisploit:noble
+    container_name: noble
+    volumes:
+      - ../client:/client
+    ports:
+      - "2325:23"
+    tty: true
+    stdin_open: true
+    networks:
+      minisploit_net:
+        ipv4_address: 172.18.0.12
+
+networks:
+  minisploit_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24
