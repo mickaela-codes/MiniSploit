@@ -161,7 +161,6 @@ pip install -r requirements.txt
 ### 2. Start the server
 
 ```bash
-cd minisploit
 python3 -m server
 ```
 Server will run at:
